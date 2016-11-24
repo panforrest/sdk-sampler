@@ -27,7 +27,32 @@ router.get('/:action', function(req, res, next) {
 
     }
 
-    // if (action == search)
+    if (action == 'search'){
+    	var search = req.query.search
+
+		var client = new Twitter({
+		  consumer_key: 'eq09Tts3bLDQzGRf4a1VXDNGw',
+		  consumer_secret: 'boonuJfSQlL9W3tlCV2hR86v2JukscfxNJ9PWOVwRAmLkhp8wz',
+		  access_token_key: '158018675-xrS1KU3Q73OVtJZy2u6CyKhZE2UFpMwPcbCEthtL',
+		  access_token_secret: 'DAhuIjLQFp1FyK2QCtW2o0o9Stn7JqNDm2xatOK4owZdA'	  
+		});
+
+  //   	if (search == null){
+		// 	res.json({
+		// 		confirmation: 'fail',
+		// 		message: 'Please enter a search term or username.'
+		// 	})
+
+		// 	return
+		// }
+
+		client.get('search/tweets', {q: search}, function(error, tweets, response) {
+		   //console.log(tweets);
+		   res.json(tweets)
+		});
+
+		return
+    }
 
 
 	if (username == null) {
@@ -48,10 +73,10 @@ router.get('/:action', function(req, res, next) {
 		}
 
 		//search
-		client.get('search/tweets', {q: search}, function(error, tweets, response) {
-		   //console.log(tweets);
-		   res.json(tweets)
-		});
+		// client.get('search/tweets', {q: search}, function(error, tweets, response) {
+		//    //console.log(tweets);
+		//    res.json(tweets)
+		// });
 
 		return
 	}
