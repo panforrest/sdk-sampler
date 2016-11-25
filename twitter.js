@@ -36,7 +36,7 @@ router.get('/:action', function(req, res, next) {
 		  // res.json(tweets)
 
 		  var content = {
-		  	username: username,
+		  	title: username,
 		  	tweets: tweets
 		  }
 
@@ -75,6 +75,7 @@ router.get('/:action', function(req, res, next) {
 		  } 
 		  var content = {
             // term: search,
+            title: search,
 		  	tweets: tweets.statuses
 		  }
 
