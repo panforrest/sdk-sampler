@@ -5,6 +5,7 @@ var Yelp = require('yelp');
 router.get('/', function(req, res, next) {
 
 	var term = req.query.term
+	var location = req.query.location
  
 	var yelp = new Yelp({
 	    consumer_key: 'Ro0KpfSZ5Sy8H0IrIGumeQ',
@@ -17,7 +18,7 @@ router.get('/', function(req, res, next) {
     //     confirmation: 'Yelp route'
     // });
 
-	yelp.search({ term: term, location: 'Montreal' })
+	yelp.search({ term: term, location: location })
 	.then(function (data) {
 	    res.json({
 	        confirmation: 'Success',
