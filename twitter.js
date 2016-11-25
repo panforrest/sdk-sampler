@@ -41,8 +41,10 @@ router.get('/:action', function(req, res, next) {
 
 	  var list = (tweets.statuses == null) ? tweets : tweets.statuses
 
+	  var title = (action == 'timeline') ? params['screen_name']: params['q']
+
 	  var content = {
-	  	title: 'TEST',
+	  	title: title,
 	  	tweets: list
 	  }
 
