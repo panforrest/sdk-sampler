@@ -67,8 +67,19 @@ router.get('/:action', function(req, res, next) {
 		// }
         var params = {q: search}
 		client.get('search/tweets', params, function(error, tweets, response) {
-		   //console.log(tweets);
-		   res.json(tweets)
+		   // console.log(tweets);
+		   // res.json(tweets)
+
+		  if (!error) {
+		    console.log(tweets);
+		  } 
+		  var content = {
+            // term: search,
+		  	tweets: tweets.statuses
+		  }
+
+		  res.render('twitter', content)
+
 		});
 
 		return
