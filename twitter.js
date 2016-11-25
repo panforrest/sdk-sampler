@@ -48,8 +48,21 @@ router.get('/:action', function(req, res, next) {
 	  	tweets: list
 	  }
 
-	  res.render('twitter', content)
+	  var format = req.query.format
+	  if (format == null)
+		format = 'html'
+
+	  if (format == 'json'){
+		res.json(tweets)	
+	  }
+	  else {
+	    res.render('twitter', content)	  	
+	  }
+
+
 	});
+
+
 
 	return
 
