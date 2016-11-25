@@ -25,7 +25,11 @@ router.get('/', function(req, res, next) {
 	    //     result: data
 	    // });
 	    console.log(data)
-	    res.render('yelp', data)
+	    var content = {
+	    	title: term+' in '+location,
+	    	data: data
+	    }
+	    res.render('yelp', content)
 	    return
 	})
 	.catch(function (err) {
