@@ -20,10 +20,12 @@ router.get('/', function(req, res, next) {
 
 	yelp.search({ term: term, location: location })
 	.then(function (data) {
-	    res.json({
-	        confirmation: 'Success',
-	        result: data
-	    });
+	    // res.json({
+	    //     confirmation: 'Success',
+	    //     result: data
+	    // });
+	    console.log(data)
+	    res.render('yelp', data)
 	    return
 	})
 	.catch(function (err) {
