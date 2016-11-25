@@ -33,7 +33,13 @@ router.get('/:action', function(req, res, next) {
 		    console.log(tweets);
 		  }
 
-		  res.json(tweets)
+		  // res.json(tweets)
+
+		  var content = {
+		  	username: username
+		  }
+
+		  res.render('twitter', content)
 		});
 
 		return
